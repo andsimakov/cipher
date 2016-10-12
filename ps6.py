@@ -107,7 +107,16 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to 
                  another letter (string). 
         '''
-        pass  # delete this line and replace with your code here
+        plain_lower = string.ascii_lowercase
+        plain_upper = string.ascii_uppercase
+        plain = '{}{}'.format(plain_upper, plain_lower)
+
+        shifted_lower = '{}{}'.format(plain_lower[shift:], plain_lower[:shift])
+        shifted_upper = '{}{}'.format(plain_upper[shift:], plain_upper[:shift])
+        shifted = '{}{}'.format(shifted_upper, shifted_lower)
+
+        mapped = dict(zip(plain, shifted))
+        return mapped
 
     def apply_shift(self, shift):
         '''
@@ -121,7 +130,7 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        pass  # delete this line and replace with your code here
+        pass
 
 
 class PlaintextMessage(Message):
@@ -142,7 +151,7 @@ class PlaintextMessage(Message):
         Hint: consider using the parent class constructor so less 
         code is repeated
         '''
-        pass  # delete this line and replace with your code here
+        pass
 
     def get_shift(self):
         '''
@@ -150,7 +159,7 @@ class PlaintextMessage(Message):
         
         Returns: self.shift
         '''
-        pass  # delete this line and replace with your code here
+        pass
 
     def get_encrypting_dict(self):
         '''
@@ -158,7 +167,7 @@ class PlaintextMessage(Message):
         
         Returns: a COPY of self.encrypting_dict
         '''
-        pass  # delete this line and replace with your code here
+        pass
 
     def get_message_text_encrypted(self):
         '''
@@ -166,7 +175,7 @@ class PlaintextMessage(Message):
         
         Returns: self.message_text_encrypted
         '''
-        pass  # delete this line and replace with your code here
+        pass
 
     def change_shift(self, shift):
         '''
@@ -179,7 +188,7 @@ class PlaintextMessage(Message):
 
         Returns: nothing
         '''
-        pass  # delete this line and replace with your code here
+        pass
 
 
 class CiphertextMessage(Message):
@@ -193,7 +202,7 @@ class CiphertextMessage(Message):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         '''
-        pass  # delete this line and replace with your code here
+        pass
 
     def decrypt_message(self):
         '''
@@ -211,7 +220,7 @@ class CiphertextMessage(Message):
         Returns: a tuple of the best shift value used to decrypt the message
         and the decrypted message text using that shift value
         '''
-        pass  # delete this line and replace with your code here
+        pass
 
 
 # --- Test cases ---
