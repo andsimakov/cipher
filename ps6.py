@@ -252,9 +252,14 @@ class CiphertextMessage(Message):
         return match_shift
 
 
+def decrypt_story():
+    cipher_text = CiphertextMessage(get_story_string())
+    return cipher_text.decrypt_message()
+
+
 # --- Test cases ---
 if __name__ == '__main__':
-    obj = D()
+    # obj = D()
 
     # Example test case (PlaintextMessage)
     plaintext = PlaintextMessage('hello', 2)
@@ -265,4 +270,6 @@ if __name__ == '__main__':
     ciphertext = CiphertextMessage('jgnnq')
     print('Expected Output:', (24, 'hello'))
     print('Actual Output:', ciphertext.decrypt_message())
+
+    print(decrypt_story())
 # --- Test cases ---
