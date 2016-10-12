@@ -146,7 +146,7 @@ class Message(object):
 class PlaintextMessage(Message):
     def __init__(self, text, shift):
         '''
-        Initializes a PlaintextMessage object        
+        Initializes a PlaintextMessage object
         
         text (string): the message's text
         shift (integer): the shift associated with this message
@@ -161,7 +161,10 @@ class PlaintextMessage(Message):
         Hint: consider using the parent class constructor so less 
         code is repeated
         '''
-        pass
+        Message.__init__(self, text)
+        self.shift = shift
+        self.encrypting_dict = self.build_shift_dict(shift)
+        self.message_text_encrypted = self.apply_shift(shift)
 
     def get_shift(self):
         '''
@@ -169,7 +172,7 @@ class PlaintextMessage(Message):
         
         Returns: self.shift
         '''
-        pass
+        return self.shift
 
     def get_encrypting_dict(self):
         '''
@@ -177,7 +180,7 @@ class PlaintextMessage(Message):
         
         Returns: a COPY of self.encrypting_dict
         '''
-        pass
+        return self.encrypting_dict.copy()
 
     def get_message_text_encrypted(self):
         '''
@@ -185,7 +188,7 @@ class PlaintextMessage(Message):
         
         Returns: self.message_text_encrypted
         '''
-        pass
+        return self.message_text_encrypted
 
     def change_shift(self, shift):
         '''
@@ -198,7 +201,9 @@ class PlaintextMessage(Message):
 
         Returns: nothing
         '''
-        pass
+        self.shift = shift
+        self.encrypting_dict = self.build_shift_dict(shift)
+        self.message_text_encrypted = self.apply_shift(shift)
 
 
 class CiphertextMessage(Message):
