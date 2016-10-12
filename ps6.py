@@ -130,7 +130,15 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        pass
+        punctuation = string.punctuation + ' '
+        result = ''
+
+        for char in self.message_text:
+            if char not in punctuation:
+                result += self.build_shift_dict(shift)[char]
+            else:
+                result += char
+        return result
 
 
 class PlaintextMessage(Message):
