@@ -130,17 +130,15 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        punctuation = string.punctuation + ' '
-        digits = string.digits
-        nonletters = '{}{}'.format(punctuation, digits)
-        result = ''
+        cipher_text = ''
+        cipher = self.build_shift_dict(shift)
 
         for char in self.message_text:
-            if char not in nonletters:
-                result += self.build_shift_dict(shift)[char]
+            if char in cipher:
+                cipher_text += cipher[char]
             else:
-                result += char
-        return result
+                cipher_text += char
+        return cipher_text
 
 
 class PlaintextMessage(Message):
