@@ -131,10 +131,12 @@ class Message(object):
              down the alphabet by the input shift
         '''
         punctuation = string.punctuation + ' '
+        digits = string.digits
+        nonletters = '{}{}'.format(punctuation, digits)
         result = ''
 
         for char in self.message_text:
-            if char not in punctuation:
+            if char not in nonletters:
                 result += self.build_shift_dict(shift)[char]
             else:
                 result += char
